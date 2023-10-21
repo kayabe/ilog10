@@ -4,6 +4,9 @@ import (
 	"math/bits"
 )
 
+// FastUint64 ...
+//
+//	v == 0 is invalid
 func FastUint64(v uint64) (r uint) {
 	lz := uint(bits.LeadingZeros64(v)) & 0x3f // &63 to eliminate bounds checking
 	r = (0x3f - lz) * 3
@@ -13,6 +16,9 @@ func FastUint64(v uint64) (r uint) {
 	return
 }
 
+// FastUint32 ...
+//
+//	v == 0 is invalid
 func FastUint32(v uint32) (r uint) {
 	lz := uint(bits.LeadingZeros32(v)) & 0x1f // &31 to eliminate bounds checking
 	r = (0x1f - lz) * 3
