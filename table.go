@@ -24,6 +24,9 @@ var factors = [...]uint64{
 
 const factorsCount = len(factors)
 
+const maxUint64 = ^uint64(0)
+const maxUint32 = ^uint32(0)
+
 var lookup32 [32]uint32
 var lookup64 [64]uint64
 
@@ -33,8 +36,6 @@ func init() {
 }
 
 func buildLookup32() {
-	const maxUint32 = ^uint32(0)
-
 	/*
 		lookup32 table
 
@@ -93,8 +94,6 @@ func buildLookup64() {
 		100                  18446744073709551615 18446744073709551615
 		10                   18446744073709551615 18446744073709551615 18446744073709551615
 	*/
-
-	const maxUint64 = ^uint64(0)
 
 	for i, j := 0, 0; i < factorsCount; i++ {
 		lookup64[j] = factors[i]
